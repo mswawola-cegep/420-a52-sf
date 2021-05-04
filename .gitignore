@@ -130,8 +130,6 @@ dmypy.json
 
 # Custom
 
-nbs/06-regression-logistique/*solu*
-nbs/07-variables-explicatives-categorielles/*solu*
 nbs/10-algorithme-knn/*solu*
 nbs/11*
 nbs/12*
@@ -143,6 +141,8 @@ nbs/17*
 nbs/18*
 nbs/19*
 nbs/20*
-pr*
+projet1/temp
+projet2
+projet3
 data/temp
 
