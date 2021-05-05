@@ -13,25 +13,19 @@ def plot_classifier(X_train, y_train, classifier, scaler, order=1, grid=100, xla
     
     # Create polynomial features
     if classifier.__class__.__name__ == "LogisticRegression":
-        poly = PolynomialFeatures(order)
+        poly = PolynomialFeatures(order, include_bias=False)
         X = poly.fit_transform(X_train)
+
     else:
         X = X_train
     
-    if classifier.__class__.__name__ == "KNeighborsClassifier":
-        a = 0
-        b = 1
-    else:
-        a = 1
-        b = 2
-    
     f, axes = plt.subplots(1,2)
-    xx = np.linspace(X[:,a].min(), X[:,a].max(), grid)
-    yy = np.linspace(X[:,b].min(), X[:,b].max(), grid)
+    xx = np.linspace(X[:,0].min(), X[:,0].max(), grid)
+    yy = np.linspace(X[:,1].min(), X[:,1].max(), grid)
     XX, YY = np.meshgrid(xx,yy)
     
-    axes[0].set_xlim(X[:,a].min(),X[:,a].max())
-    axes[0].set_ylim(X[:,b].min(),X[:,b].max())
+    axes[0].set_xlim(X[:,0].min(),X[:,0].max())
+    axes[0].set_ylim(X[:,1].min(),X[:,1].max())
     
     if classifier.__class__.__name__ == "KNeighborsClassifier":
         vec = np.c_[XX.ravel(), YY.ravel()]
@@ -44,7 +38,7 @@ def plot_classifier(X_train, y_train, classifier, scaler, order=1, grid=100, xla
     z = classifier.predict_proba(vec)[:, 1]
     z = z.reshape(XX.shape)
     
-    sns.scatterplot(x=X[:,a], y=X[:,b], hue=y_train.ravel(), ax=axes[0], s=50)
+    sns.scatterplot(x=X[:,0], y=X[:,1], hue=y_train.ravel(), ax=axes[0], s=50)
     CS = axes[0].contour(XX,YY,z,[0.5], colors=["g"])
     axes[0].set_xlabel(xlabel)
     axes[0].set_ylabel(ylabel)
