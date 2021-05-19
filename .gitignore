@@ -130,7 +130,6 @@ dmypy.json
 
 # Custom
 
-nbs/12*/*sol*
 nbs/13*/*sol*
 nbs/14*
 nbs/15*
