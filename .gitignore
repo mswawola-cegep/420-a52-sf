@@ -130,12 +130,7 @@ dmypy.json
 
 # Custom
 
-nbs/14*/*sol*
-nbs/15*/*sol*
-nbs/16*
+nbs/16*/*sol*
 nbs/17*
 nbs/18*
-nbs/19*
-nbs/20*
 projet-temp
-data/temp
