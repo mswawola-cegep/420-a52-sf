@@ -131,6 +131,6 @@ dmypy.json
 # Custom
 
 nbs/16*/*sol*
-nbs/17*
+nbs/17*/*sol*
 nbs/18*
 projet-temp
