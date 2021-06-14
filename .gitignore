@@ -131,3 +131,4 @@ dmypy.json
 # Custom
 
 projet-temp
+evals/exam/*sol*
